@@ -4,9 +4,202 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Taller de JS</title>
+
+    <script src="./script.js"></script>
+
 </head>
 <body>
+    <h1>Hola, Javascript!</h1>
+    
+    <script>
+        let nombre = 'Nafisa';
+        let apellido = "Usmanova";
+        let nombreCompleto = nombre + " " + apellido;
+        let edad = 30;
+        let altura = 1.60;
+        let casada = true;
+        document.write(nombre);
+        document.write('<br>');
+        document.write(nombreCompleto);
+        document.write('<br>');
+        document.write(edad);
+        document.write('<br>');
+        document.write(altura);
+        document.write('<br>');
+        document.write(casada);
+        document.write('<br>');
+        
+        console.log(salud());//funciona aqui, pero abajo - no. ???
+
+        let listaCompra = ["platano", " manzana", " aceite", " pan", " mantequilla"]
+        listaCompra[5]= " tomate"
+        listaCompra[3] = " chocolate"
+        document.write(listaCompra);
+        document.write('<br>');
+
+        let kgs = [3, 4, 2, 5, 1]
+        document.write(kgs);
+        document.write('<br>');
+        document.write('<br>');
+
+        //Function concatenating
+        function salud(){
+            let result = 'Hola, ' + nombre +'!';
+            return result;
+        }
+        document.write('-------');
+        document.write('<br>');
+
+        document.write('<strong>Function concatenating:</strong>');
+        document.write('<br>');
+        document.write('<br>');
+        document.write(salud()); 
+        document.write('<br>');
+        document.write('<br>');
+
+        //Function operation
+        //1.
+        document.write('<strong>Function SUMA:</strong>  ');
+        document.write('<br>');
+        function suma(){
+            var a = 456;
+            var b = 2050;
+            let resultado = a + b;
+            return resultado;
+        }
+        document.write(suma());
+        document.write('<br>');
+        console.log(suma());
+
+        //2.
+        document.write('<strong>Function SUM:</strong>  ');
+        document.write('<br>');
+        function sum(n, m){
+            let res = n + m;
+            return res;
+        }
+        document.write(sum(5, 6));//11
+        document.write('<br>');
+        console.log(sum(5, 6));   //11
+
+        //Function Odd or Pair
+        document.write('<strong>Function Odd or Pair: (includes prompt)</strong>  ');
+        document.write('<br>');
+        document.write('<br>');
+
+        function esParOimpar(){
+            var numero;
+            numero = prompt ('Introducir un número');
+            if(numero % 2 == 0){
+                let resultado;
+                resultado = 'El número ' + numero +' es par.';
+                document.write(resultado);
+                console.log(resultado);
+            }else{
+                resultado = 'El número ' + numero + ' es impar.';
+                document.write(resultado);
+                console.log(resultado);
+            }
+            return resultado;
+        }
+        //document.write(esParOimpar());
+
+        //Object
+        document.write('<strong>Object:</strong>  ');
+        document.write('<br>');
+        let coche = {
+            marca : 'Mercedes',
+            numeroDePuertas: 5,
+            color: 'white'
+        }
+        document.write(coche.marca);
+        document.write('<br>');
+        document.write('Color of the car:   '+ coche.color);
+        document.write('<br>');
+
+       
+        //Pint Array
+        document.write('<strong>Array:</strong>');
+        document.write('<br>');
+        let n = [3, 22, 37, 49, 51, 62, 71, 80, 93, 10];
+        function printArray(){
+            for(i=0; i<n.length; i++ ){
+                n += 1;
+            }
+            return n;
+        }
+        console.log('Numbers of array: ' + n);
+        document.write(n);
+        document.write('<br>');
+        document.write('<br>');
+        document.write('<br>');
+
+        //Max number
+        let array = [3, 71, 22, 37,51, 49,   62,  80,  10, 93,];
+        let biggestNumber = 0
+        function findBiggestNumber(){
+            for(i=0; i<array.length; i++){
+                if(biggestNumber < array[i]){
+                    biggestNumber = array[i]
+                }
+            }
+            return biggestNumber
+        }
+        findBiggestNumber();
+        console.log('The Max number of the array is: ' + findBiggestNumber());
+        
+        // min numbers of Array:
+        let array4 = [3, 71, 22, 37,51, 49,  62,  800,  10, 93,];
+
+        let smallestNumber1 = array4[0];
+        function findSmallestNmbr(){
+            for(i=0; i<array4.lenght; i++){
+                if(smallestNumber1< array4[i]){
+                    smallestNumber1 = array4[i];
+                }
+            }
+            return smallestNumber1;
+        }
+        findSmallestNmbr();
+        console.log("I'm a smallest number: "+ findSmallestNmbr());
+
+            
+        //Add en element into Array:
+        let array2 = [3, 71, 22, 37,51, 49,   62,  80,  10, 93,];
+        array2.push(200);
+        console.log('Add an element into array: (the last one)'+ array2);
+
+        //Remove all even number
+        let array3 = [3, 71, 22, 37,51, 49,   62,  80,  10, 93,];
+        let oddNumbers = array3.filter(function(number){
+            return number % 2 !==0
+        });
+        console.log('Here you can find just ODD numbers: ' + oddNumbers);  
+        
+        //To Uppercase
+        let string = "once upon a time..";
+        //string.toUpperCase();
+        console.log(string.toUpperCase());
+
+        //To lowercase
+        let myString = "Yesterday is a history, Tomorrow is a mistery, Today is a present. ";
+        console.log(myString.toLowerCase());
+
+        //Capitalize
+        //let list = ["julia", "lewis", "judith"];
+        //console.log(list.charAt());
+        function capitalizeWords(arr){
+            return arr.map((word) => {
+                const capitalizedFirst = word.charAt(0).toUpperCase();
+                const rest = word.slice(1).toLowerCase();
+                return capitalizedFirst + rest;
+            });
+        }
+        const words = ['JULIA', 'judith', 'cARMEN'];
+        console.log(capitalizeWords(words));
+    </script>
+    
     
 </body>
 </html>
